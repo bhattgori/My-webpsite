@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Happy Birthday Divya 🎂💖</title>
 
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;600;700&family=Poppins:wght@400;500;600&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 
     <style>
@@ -541,10 +541,74 @@
                 font-size: 1.45rem;
             }
         }
+
+        /* ===== PREMIUM ADDITIONS ===== */
+        .premium-intro {
+            position: fixed;
+            inset: 0;
+            z-index: 200;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: radial-gradient(circle at center, #fff8fb 0%, #ffd9e5 45%, #f8a9bf 100%);
+            transition: opacity 1s ease, visibility 1s ease;
+        }
+        .premium-intro.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+        .intro-inner { padding: 30px; animation: introRise 1.3s ease; }
+        .intro-small { font-family:'Poppins',sans-serif; letter-spacing:4px; text-transform:uppercase; font-size:.75rem; color:#a44a65; }
+        .intro-name { font-family:'Dancing Script',cursive; font-size:5rem; line-height:1; margin:15px 0; background:linear-gradient(45deg,#ff4757,#b83280); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+        .intro-heart { font-size:3rem; animation:pulseHeart 1.5s infinite; }
+        .intro-btn { border:0; border-radius:50px; padding:14px 32px; margin-top:18px; color:white; font-weight:600; cursor:pointer; background:linear-gradient(135deg,#ff758c,#ff4757); box-shadow:0 10px 30px rgba(255,71,87,.3); transition:.3s; }
+        .intro-btn:hover { transform:translateY(-3px) scale(1.03); }
+        .section-title { font-family:'Playfair Display',serif; }
+        .feature-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:14px; margin-top:20px; }
+        .feature-card { background:linear-gradient(135deg,#fff,#fff1f5); border:1px solid #ffd5df; border-radius:20px; padding:18px 12px; cursor:pointer; transition:.35s; box-shadow:0 5px 16px rgba(255,71,87,.08); }
+        .feature-card:hover { transform:translateY(-5px); box-shadow:0 12px 25px rgba(255,71,87,.14); }
+        .feature-card .big-icon { font-size:2rem; display:block; margin-bottom:7px; }
+        .feature-card strong { color:#ff527b; font-size:.9rem; }
+        .polaroid-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:15px; margin-top:20px; }
+        .polaroid { background:white; padding:9px 9px 14px; box-shadow:0 8px 18px rgba(0,0,0,.1); transform:rotate(-2deg); transition:.3s; }
+        .polaroid:nth-child(even){transform:rotate(2deg);}
+        .polaroid:hover{transform:rotate(0) scale(1.03);}
+        .polaroid img{width:100%; height:145px; object-fit:cover;}
+        .polaroid span{font-family:'Dancing Script',cursive;font-size:1.15rem;color:#555;display:block;margin-top:7px;}
+        .timeline { margin:20px 0; position:relative; text-align:left; }
+        .timeline:before { content:""; position:absolute; left:17px; top:0; bottom:0; width:2px; background:#ffc1cf; }
+        .timeline-item { position:relative; padding:0 0 22px 48px; }
+        .timeline-dot { position:absolute; left:9px; top:2px; width:18px; height:18px; border-radius:50%; background:#ff6682; box-shadow:0 0 0 5px #ffe5ec; }
+        .timeline-item h3 { font-family:'Playfair Display',serif; color:#ff527b; margin-bottom:4px; }
+        .letter-paper { background:#fffdf8; border:1px solid #f0dfc7; border-radius:6px; padding:28px 23px; text-align:left; box-shadow:0 10px 25px rgba(120,70,40,.08); position:relative; }
+        .letter-paper:before { content:""; position:absolute; inset:8px; border:1px dashed #e9c9c9; pointer-events:none; }
+        .letter-text { position:relative; font-family:'Dancing Script',cursive; font-size:1.35rem; line-height:1.7; color:#555; white-space:pre-line; }
+        .music-bar { display:flex; align-items:center; justify-content:center; gap:12px; margin:16px 0; padding:12px; background:#fff2f6; border-radius:50px; border:1px solid #ffd5df; }
+        .music-btn { border:0; width:42px; height:42px; border-radius:50%; background:#ff527b; color:#fff; cursor:pointer; }
+        .final-screen { background:radial-gradient(circle,#fff8fb 0%,#ffd2df 55%,#f39bb6 100%); }
+        .final-message { font-family:'Dancing Script',cursive; font-size:3rem; color:#ff4757; line-height:1.15; }
+        .secret-note { margin-top:18px; font-family:'Playfair Display',serif; font-size:1rem; color:#555; line-height:1.7; }
+        @keyframes introRise { from{opacity:0;transform:translateY(35px) scale(.95)} to{opacity:1;transform:none} }
+        @media(max-width:500px){
+            .intro-name{font-size:4rem}
+            .feature-grid,.polaroid-grid{grid-template-columns:1fr 1fr}
+            .final-message{font-size:2.5rem}
+        }
+
     </style>
 </head>
 
 <body>
+
+    <!-- PREMIUM CINEMATIC INTRO -->
+    <div class="premium-intro" id="premiumIntro">
+        <div class="intro-inner">
+            <div class="intro-heart">💖</div>
+            <div class="intro-small">A little surprise made especially for</div>
+            <div class="intro-name">Divya</div>
+            <div style="color:#7b4a59;font-family:'Playfair Display',serif;">Because some people deserve more than just a birthday wish ✨</div>
+            <button class="intro-btn" onclick="enterSurprise()">Open Your Surprise 🎁</button>
+        </div>
+    </div>
+
 
     <div id="magical-particles"></div>
 
@@ -643,6 +707,15 @@
 
             <h2>My Amazing Friend! 💖</h2>
 
+            <div class="music-bar">
+                <button class="music-btn" onclick="toggleMusic()" id="musicBtn">▶</button>
+                <span id="musicText">Play a little birthday music 🎵</span>
+                <audio id="birthdayMusic" loop preload="none">
+                    <source src="" type="audio/mpeg">
+                </audio>
+            </div>
+
+
             <p>
                 Today is all about celebrating you! 🥳
                 I hope your day is filled with happiness,
@@ -708,6 +781,23 @@
                     id="loveSliderRange"
                     oninput="updateLoveMeter(this.value)"
                 >
+            </div>
+
+
+            <!-- PREMIUM FEATURES -->
+            <div class="feature-grid">
+                <div class="feature-card" onclick="navigateTo('scr-letter')">
+                    <span class="big-icon">💌</span><strong>Secret Letter</strong>
+                </div>
+                <div class="feature-card" onclick="navigateTo('scr-memories')">
+                    <span class="big-icon">📸</span><strong>Little Memories</strong>
+                </div>
+                <div class="feature-card" onclick="navigateTo('scr-timeline')">
+                    <span class="big-icon">🕰️</span><strong>Our Little Story</strong>
+                </div>
+                <div class="feature-card" onclick="navigateTo('scr-final')">
+                    <span class="big-icon">🎁</span><strong>One Last Surprise</strong>
+                </div>
             </div>
 
             <!-- MENU -->
@@ -804,6 +894,74 @@ Happy Birthday once again, Divya! 🎂🥳
 Here's to another year of fun,
 happiness and amazing memories! ✨
                 </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- SECRET LETTER -->
+    <div class="screen" id="scr-letter">
+        <div class="container">
+            <button class="back-btn" onclick="navigateTo('scr-main')">← Back to Birthday</button>
+            <h1 class="section-title">A Little Letter 💌</h1>
+            <div class="letter-paper">
+                <div class="letter-text">Dear Divya,
+
+Some people enter our lives and somehow make normal moments feel a little more special.
+
+I hope this new year brings you happiness, success, peaceful days and countless reasons to smile.
+
+Keep being your amazing self, keep chasing your dreams, and keep creating memories that make you laugh even years later.
+
+Today is your day, so forget everything for a moment and simply enjoy it. 🎂✨
+
+Happy Birthday, Divya! 💖</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MEMORIES -->
+    <div class="screen" id="scr-memories">
+        <div class="container">
+            <button class="back-btn" onclick="navigateTo('scr-main')">← Back to Birthday</button>
+            <h1 class="section-title">Little Memories 📸</h1>
+            <p>Replace these sample photos with your own favourite memories.</p>
+            <div class="polaroid-grid">
+                <div class="polaroid"><img src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=600" alt="Friends"><span>Good times ✨</span></div>
+                <div class="polaroid"><img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600" alt="Friends laughing"><span>Crazy moments 😂</span></div>
+                <div class="polaroid"><img src="https://images.unsplash.com/photo-1539635278303-d4002c07eae3?w=600" alt="Memory"><span>Best memories 🌸</span></div>
+                <div class="polaroid"><img src="https://images.unsplash.com/photo-1506869640319-fe1a24fd76dc?w=600" alt="Celebration"><span>More to come 💖</span></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- STORY TIMELINE -->
+    <div class="screen" id="scr-timeline">
+        <div class="container">
+            <button class="back-btn" onclick="navigateTo('scr-main')">← Back to Birthday</button>
+            <h1 class="section-title">Our Little Story 🕰️</h1>
+            <p>A tiny timeline of moments worth remembering.</p>
+            <div class="timeline">
+                <div class="timeline-item"><span class="timeline-dot"></span><h3>The Beginning 🌸</h3><p>Every memorable story starts with a simple moment.</p></div>
+                <div class="timeline-item"><span class="timeline-dot"></span><h3>The Random Talks 😂</h3><p>Those conversations that somehow turn into memories.</p></div>
+                <div class="timeline-item"><span class="timeline-dot"></span><h3>The Crazy Moments 🫶</h3><p>The moments that make ordinary days much more fun.</p></div>
+                <div class="timeline-item"><span class="timeline-dot"></span><h3>Today 🎂</h3><p>Another year, another reason to celebrate you.</p></div>
+                <div class="timeline-item"><span class="timeline-dot"></span><h3>More Memories Ahead ✨</h3><p>Because the best chapters are still waiting to be written.</p></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FINAL SURPRISE -->
+    <div class="screen final-screen" id="scr-final">
+        <div class="container">
+            <button class="back-btn" onclick="navigateTo('scr-main')">← Back</button>
+            <div style="font-size:4rem;animation:pulseHeart 1.5s infinite;">🎁</div>
+            <h1 class="section-title">One Last Surprise...</h1>
+            <p id="finalHint">You found almost everything. But there is still one little surprise left. 👀</p>
+            <button class="action-btn" onclick="openFinalSurprise()">Open Final Surprise ✨</button>
+            <div id="finalReveal" style="display:none;margin-top:25px;">
+                <div class="final-message">Happy Birthday, Divya! ❤️</div>
+                <div class="secret-note">May your life always have more smiles than worries, more beautiful memories than bad days, and more reasons to be proud of yourself. 🌸<br><br>Keep shining, birthday girl. ✨</div>
             </div>
         </div>
     </div>
@@ -1156,6 +1314,45 @@ happiness and amazing memories! ✨
             setTimeout(() => {
                 particle.remove();
             }, 8000);
+        }
+
+
+        function enterSurprise() {
+            const intro = document.getElementById("premiumIntro");
+            intro.classList.add("hidden");
+            setTimeout(() => intro.remove(), 1100);
+        }
+
+        function openFinalSurprise() {
+            document.getElementById("finalHint").textContent = "This one is just for you... 💖";
+            document.getElementById("finalReveal").style.display = "block";
+            if (typeof confetti === "function") {
+                const end = Date.now() + 3500;
+                (function blast() {
+                    confetti({particleCount: 35, spread: 100, origin:{x:.1,y:.7}});
+                    confetti({particleCount: 35, spread: 100, origin:{x:.9,y:.7}});
+                    if (Date.now() < end) requestAnimationFrame(blast);
+                })();
+            }
+        }
+
+        function toggleMusic() {
+            const audio = document.getElementById("birthdayMusic");
+            const btn = document.getElementById("musicBtn");
+            const text = document.getElementById("musicText");
+            if (!audio.src || audio.src.endsWith("/")) {
+                text.textContent = "Add your MP3 file in the <audio> source 🎵";
+                return;
+            }
+            if (audio.paused) {
+                audio.play();
+                btn.textContent = "⏸";
+                text.textContent = "Birthday music playing 🎶";
+            } else {
+                audio.pause();
+                btn.textContent = "▶";
+                text.textContent = "Play a little birthday music 🎵";
+            }
         }
 
         document
